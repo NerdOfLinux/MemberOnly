@@ -20,7 +20,7 @@ class member_only {
         $capability = "manage_options";
         $slug = "member_only";
         $callback = array( $variables, 'settings_page_content' );
-        $icon = 'dashicons-admin-plugins';
+        $icon = "dashicons-admin-plugins";
         $position = 100;
     }
     /* Create the page*/
@@ -51,7 +51,7 @@ class member_only {
           return $content;
      }
  }
+    add_filter( 'the_content', 'post_filter' );
 }
 new member_only();
-add_filter( 'the_content', 'post_filter' );
 ?>
