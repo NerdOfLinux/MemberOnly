@@ -84,8 +84,7 @@ add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
     /* Get variables */
-    $options = get_option("redirect");
-    $redirect = checked( 1, $options['redirect'], false );
+    $redirect = get_option("redirect");
     $login_link = get_option("loginURL");
     $member_categories = get_option("categories");
     /* Create categories that are member only*/
