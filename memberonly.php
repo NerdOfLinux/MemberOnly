@@ -74,7 +74,7 @@ add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
     /* Get variables */
-    $options = get_option("member_only_fields");
+    $options = get_option("member_only_fields", "blank");
     /* Create categories that are member only*/
     $categories = array(
      'premium',
