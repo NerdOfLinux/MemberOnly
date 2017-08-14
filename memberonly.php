@@ -10,7 +10,7 @@
  */
 class member_only {
  /* Include settings.php */
- include("settings.php");
+require("settings.php");
  add_filter( 'the_content', 'post_filter' );
  /* Create the function */
  public function post_filter( $content ) {
