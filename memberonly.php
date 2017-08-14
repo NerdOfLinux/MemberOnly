@@ -13,7 +13,7 @@ class member_only {
  include("settings.php");
  add_filter( 'the_content', 'post_filter' );
  /* Create the function */
- function post_filter( $content ) {
+ public function post_filter( $content ) {
      /* Create categories that are member only*/
      $categories = array(
          'premium',
