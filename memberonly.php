@@ -49,10 +49,10 @@ class member_only {
     public function section_callback( $arguments ) {
         /* Set up input*/
         switch( $arguments['id'] ){
-            case "categories" :
+            case "first_section" :
                 echo "Categories that will trigger the member only message.";
                 break;
-            case "loginURL":
+            case "second_section":
                 echo "The login URL of your site. ";
             break;
         }
