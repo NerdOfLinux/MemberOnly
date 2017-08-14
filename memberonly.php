@@ -55,7 +55,7 @@
         register_setting("member_only_fields", "categories");
     
         add_settings_section("categories", "Member Only Categories: ", array($this, 'section_callback'), "member_only_fields");
-        add_settings_field( 'categories', 'Categories: ', array( $this, 'field_callback' ), 'member_only_fields', 'categories' );
+        //add_settings_field( 'categories', 'Categories: ', array( $this, 'field_callback' ), 'member_only_fields', 'categories' );
         
         /* register_setting("member_only_fields", "loginURL");
         add_settings_section("loginURL", "Login URL: ", array($this, 'section_callback'), "member_only_fields");
