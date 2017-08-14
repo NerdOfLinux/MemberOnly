@@ -25,7 +25,7 @@ function post_filter( $content ) {
             $link = str_replace(':', '%3A', $link);
             $link = str_replace('/', '%2F', $link);
             $content = "<p>Sorry, this post is only available to members. <a href=\"gateblogs.com/login?redirect_to=$link\">Sign in/Register</a></p>"; */
-            $content= "<p> Sorry, this post is member only. <p>"
+            $content= "<p> Sorry, this post is member only. <p>";
             return $content;
         }
     } else {
