@@ -26,8 +26,17 @@ class member_only {
         add_submenu_page( "options-general.php", $page_title, $menu_title, $capability, $slug, $callback );
     }
     /* Create the page*/
-    public function settings_page_content() {
-        echo "Test of settings page."; 
+    public function settings_page_content() { ?>
+        <div class="wrap">
+            <h2> Member Only Content </h2>Content
+            <form method="post" action="options.php">
+                <?php
+                    settings_fields("member_only_fields");
+                    do_settings_sections("member_only_fields");
+                    submit_button();
+                ?>
+            </form>
+    <?php
     }
 }
 new member_only();
