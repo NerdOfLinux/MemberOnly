@@ -51,7 +51,7 @@ class member_only {
           return $content;
      }
  }
-    add_filter( 'the_content', 'post_filter' );
 }
+add_filter( 'the_content', 'post_filter' );
 new member_only();
 ?>
