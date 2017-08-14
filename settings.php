@@ -1,5 +1,5 @@
 <?php
-  public function __construct() {
+  function __construct() {
     // Hook into the admin menu
     add_action( 'admin_menu', array( $variables, 'settings_page' ) );
   }
@@ -14,7 +14,7 @@
     $position = 100;
   }
   /* Create teh page*/
-  public function settingts_page_content() {
+  function settings_page_content() {
     echo "Test of settings page."; 
   }
 ?>
