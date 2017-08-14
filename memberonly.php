@@ -63,9 +63,9 @@
     }
     /* Create input fields*/
     public function field_callback ( $arguments ) {
-        if ( "categories" === $arguments[ 'context' ]){
+        if ( "categories" === $arguments[ 'field-callback' ]){
                 echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
-        }else if ( "loginURL" === $arguments["context"]){
+        }else if ( "loginURL" === $arguments["section_callback"]){
             echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>"; }
     }
     }
