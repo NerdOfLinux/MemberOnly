@@ -103,7 +103,7 @@ function post_filter( $content ) {
                  $link = str_replace('/', '%2F', $link);
                  $content = "<p>Sorry, this post is only available to members. <a href=\"$login_link?redirect_to=$link\">Sign in/Register</a></p>";
              } else {
-                 $content = "<p> Sorry, this post is member only. <a href=\"$login_link\"> Login Here. </a><p>"; }
+                 $content = "<p> Sorry, this post is only available to members. <a href=\"$login_link\"> Login Here. </a><p>"; }
              return $content;
          }
     } else {
