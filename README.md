@@ -4,6 +4,7 @@ I needed a solution to create a member only category in WordPress, and if a post
 Thank you to:
 
 https://stackoverflow.com/questions/45680285/wordpress-error-options-page-not-found<br>
+https://wordpress.stackexchange.com/questions/274296/how-can-i-only-show-certain-posts<br>
 and the other hundred Stack Overflow questions and answers that helped me with coding this.
 
 Here's the zip file: 
