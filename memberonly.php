@@ -16,6 +16,7 @@ class member_only {
         add_action( 'admin_menu', array( $this, 'settings_page' ) );
         add_action( 'admin_init', array( $this, 'setup_sections' ) );
         add_action( 'admin_init', array( $this, 'setup_fields' ) );
+        add_action( 'admin_init', 'pg_register_settings' );
     }
     public function settings_page() {
         //Create the menu item and page
