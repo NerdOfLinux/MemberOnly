@@ -54,6 +54,7 @@ class member_only {
             case "second_section":
                 echo "Login URL: ";
             break;
+        }
     }
 }
 new member_only();
