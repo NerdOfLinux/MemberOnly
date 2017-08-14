@@ -46,7 +46,14 @@ class member_only {
     }
     /* Setup section_callback */
     public function section_callback( $arguments ) {
-        echo "Hello World!";
+        /* Set up input*/
+        switch( $arguments['id'] ){
+            case "first_section" :
+                echo "Member Only Categories: ";
+                break;
+            case "second_section":
+                echo "Login URL: ";
+            break;
     }
 }
 new member_only();
