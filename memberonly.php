@@ -11,6 +11,7 @@
 /* Include settings.php */
 include("settings.php");
 class member_only {
+ add_filter( 'the_content', 'post_filter' );
  /* Create the function */
  function post_filter( $content ) {
      /* Create categories that are member only*/
@@ -35,7 +36,6 @@ class member_only {
           return $content;
      }
  }
- add_filter( 'the_content', 'post_filter' );
 }
 new member_only();
 ?>
