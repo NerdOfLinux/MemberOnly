@@ -74,16 +74,14 @@ add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
     /* Get variables */
+    $login_link = get_option("loginURL");
+    $member_categories = get_option("categories");
     /* Create categories that are member only*/
-    $categories = array(
-     'premium',
-    );
+    $categories = explode(",", $member_categories);
     /* If the post is in the category */
     if ( in_category( $categories ) ) {
      /* If the user is logged in, then show the content*/
      if ( is_user_logged_in() ) {
-         $test = get_option("categories");
-         echo "$test";
          return $content;
      /* Else tell the user to log in */
      } else {
@@ -91,7 +89,7 @@ function post_filter( $content ) {
          $link = str_replace(':', '%3A', $link);
          $link = str_replace('/', '%2F', $link);
          $content = "<p>Sorry, this post is only available to members. <a href=\"gateblogs.com/login?redirect_to=$link\">Sign in/Register</a></p>"; */
-         $content= "<p> Sorry, this post is member only. <p>";
+         $content= "<p> Sorry, this post is member only. <a href=\"$login_link\"> Login Here. </a><p>";
          return $content;
      }
     } else {
