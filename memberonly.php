@@ -55,17 +55,17 @@
         register_setting("member_only_fields", "categories");
     
         add_settings_section("categories", "Member Only Categories: ", array($this, 'section_callback'), "member_only_fields");
-        add_settings_field( 'categories', 'Categories: ', array( $this, 'field_callback' ), 'member_only_fields', 'categories' );
+        add_settings_field( 'categories', 'Categories: ', array( $this, 'field_callback' ), 'member_only_fields', 'categories', array( 'context' => 'categories') );
         
         register_setting("member_only_fields", "loginURL");
         add_settings_section("loginURL", "Login URL: ", array($this, 'section_callback'), "member_only_fields");
-        add_settings_field( 'loginURL', 'Login URL: ', array( $this, 'field_callback' ), 'member_only_fields', 'loginURL' );
+        add_settings_field( 'loginURL', 'Login URL: ', array( $this, 'field_callback' ), 'member_only_fields', 'loginURL',  array( 'context' => 'loginURL'));
     }
     /* Create input fields*/
-    public function field_callback ( $arguments ) {
-        if ( "categories" === $arguments[ 'field-callback' ]){
+    public function field_callback ( $args ) {
+        if ( "categories" === $args[ 'context' ]){
                 echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
-        }else if ( "loginURL" === $arguments["section_callback"]){
+        }else if ( "loginURL" === $args['context']){
             echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>"; }
     }
     }
