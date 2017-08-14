@@ -44,13 +44,17 @@
         /* Set up input*/
         switch( $arguments['id'] ){
             case "categories" :
-                echo "Categories that will trigger the member only message.(use the slugs and seperate multiple category slugs with commas and NO SPACES)";
+                echo "Categories that will trigger the member only message(use the slugs and seperate multiple category slugs with commas and NO SPACES)";
                 break;
             case "loginURL":
                 echo "The login URL of your site. ";
                 break;
             case "redirect":
                 echo "Check the box to redirect the user after they login:";
+                break;
+            case "message":
+                echo "The message to show to not signed in users. Will be followed by \"Sign in.\"(as a hyperlink to your sign in page).";
+                break;
         }
     }
     public function setup_init() {
@@ -66,6 +70,10 @@
         register_setting("member_only_fields", "redirect");
         add_settings_section("redirect", "Redirect User: ", array($this, 'section_callback'), "member_only_fields");
         add_settings_field( 'redirect', 'Redirect User?: ', array( $this, 'field_callback' ), 'member_only_fields', 'redirect',  array( 'context' => 'redirect'));
+        
+        register_setting("member_only_fields", "message");
+        add_settings_section("message", "Message: ", array($this, 'section_callback'), "member_only_fields");
+        add_settings_field( 'message', 'Message: ', array( $this, 'field_callback' ), 'member_only_fields', 'message',  array( 'context' => 'message'));
     }
     /* Create input fields*/
     public function field_callback ( $args ) {
@@ -76,6 +84,8 @@
         }else if ( "redirect" === $args['context']){
             $options = get_option( 'redirect' );
             echo "<input type=\"checkbox\" id=\"redirect\" name=\"redirect\" value=\"1\"" . checked( 1, $options['redirect'], false ) . "/>";
+        }else if ( "message" === $args['context']) {
+            echo "<textarea name=\"message\" id=\"message\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("message"). "</textarea>";
         }
     }
     }
@@ -87,6 +97,7 @@ function post_filter( $content ) {
     $redirect = get_option("redirect");
     $login_link = get_option("loginURL");
     $member_categories = get_option("categories");
+    $message = get_option("message");
     /* Create categories that are member only*/
     $categories = explode(",", $member_categories);
     /* If the post is in the category */
@@ -101,9 +112,9 @@ function post_filter( $content ) {
                  $link = get_the_permalink();
                  $link = str_replace(':', '%3A', $link);
                  $link = str_replace('/', '%2F', $link);
-                 $content = "<p>Sorry, this post is only available to members. <a href=\"$login_link?redirect_to=$link\">Sign in.</a></p>";
+                 $content = "<p>$message<a href=\"$login_link?redirect_to=$link\">Sign in.</a></p>";
              } else {
-                 $content = "<p> Sorry, this post is only available to members. <a href=\"$login_link\"> Sign in. </a><p>"; }
+                 $content = "<p>$message<a href=\"$login_link\"> Sign in. </a></p>"; }
              return $content;
          }
     } else {
