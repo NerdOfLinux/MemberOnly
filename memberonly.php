@@ -44,7 +44,7 @@
         /* Set up input*/
         switch( $arguments['id'] ){
             case "categories" :
-                echo "Categories that will trigger the member only message.";
+                echo "Categories that will trigger the member only message.(use the slugs and seperate multiple category slugs with commas and NO SPACES)";
                 break;
             case "loginURL":
                 echo "The login URL of your site. ";
