@@ -8,6 +8,8 @@
   Author URI: https://gateblogs.com
   License: MIT
  */
+/* Include settings.php */
+include("settings.php")
 /* Create the function */
 function post_filter( $content ) {
     /* Create categories that are member only*/
