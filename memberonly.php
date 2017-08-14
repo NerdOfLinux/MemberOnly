@@ -73,14 +73,17 @@ new member_only();
 add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
- /* Create categories that are member only*/
- $categories = array(
+    /* Get variables */
+    $options = get_option("member_only_fields");
+    /* Create categories that are member only*/
+    $categories = array(
      'premium',
- );
- /* If the post is in the category */
- if ( in_category( $categories ) ) {
+    );
+    /* If the post is in the category */
+    if ( in_category( $categories ) ) {
      /* If the user is logged in, then show the content*/
      if ( is_user_logged_in() ) {
+         echo "$options['categories']";
          return $content;
      /* Else tell the user to log in */
      } else {
@@ -91,8 +94,8 @@ function post_filter( $content ) {
          $content= "<p> Sorry, this post is member only. <p>";
          return $content;
      }
- } else {
+    } else {
       return $content;
- }
+    }
 }
 ?>
