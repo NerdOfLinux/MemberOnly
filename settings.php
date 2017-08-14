@@ -1,9 +1,9 @@
 <?php
-  function __construct() {
+  public function __construct() {
     // Hook into the admin menu
     add_action( 'admin_menu', array( $variables, 'settings_page' ) );
   }
-  function settings_page() {
+  pubic function settings_page() {
     //Create the menu item and page
     $page_title = "Member Only Content Settings Page";
     $menu_title = "Member Only Content";
@@ -14,7 +14,7 @@
     $position = 100;
   }
   /* Create the page*/
-  function settings_page_content() {
+  public function settings_page_content() {
     echo "Test of settings page."; 
   }
 ?>
