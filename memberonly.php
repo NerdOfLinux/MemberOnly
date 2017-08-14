@@ -87,7 +87,7 @@
         if ( "categories" === $args[ 'context' ]){
                 echo "<textarea name=\"categories\" id=\"categories\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("categories", "member-only"). "</textarea>";
         }else if ( "loginURL" === $args['context']){
-            echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL", "/login"). "\"\>";
+            echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL", "/wp-login.php"). "\"\>";
         }else if ( "redirect" === $args['context']){
             $options = get_option( 'redirect' );
             echo "<input type=\"checkbox\" id=\"redirect\" name=\"redirect\" value=\"1\"" . checked( 1, $options['redirect'], false ) . "/>";
@@ -104,7 +104,7 @@ add_filter( 'the_content', 'post_filter' );
 function post_filter( $content ) {
     /* Get variables */
     $redirect = get_option("redirect");
-    $login_link = get_option("loginURL", "/login");
+    $login_link = get_option("loginURL", "/wp-login.php");
     $member_categories = get_option("categories", "member-only");
     $message = get_option("message", "Sorry, this post is for members only.  [sign_in]");
     $loginText = get_option("loginText", "Sign In/Register.");
