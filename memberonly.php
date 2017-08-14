@@ -5,7 +5,7 @@
   Description: A simple plugin to create member only content
   Version: 0.1
   Author: NerdOfLinux
-  Author URI: https://gateblogs.com
+  Author URI: https://gateblogs.com/user/nerdoflinux
   License: MIT
  */
     class Member_Only {
