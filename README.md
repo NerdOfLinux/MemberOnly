@@ -3,9 +3,9 @@ I needed a solution to create a member only category in WordPress, and if a post
 
 Thank you to:
 
-https://stackoverflow.com/questions/45680285/wordpress-error-options-page-not-found
+https://stackoverflow.com/questions/45680285/wordpress-error-options-page-not-found<br>
 and the other hundred Stack Overflow questions and answers that helped me with coding this.
 
 Here's the zip file: 
-https://codeload.github.com/NerdOfLinux/Scripts/zip/master
+https://codeload.github.com/NerdOfLinux/Scripts/zip/master<br>
 Just upload it as a WordPress plugin and configure it.
