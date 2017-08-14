@@ -101,9 +101,9 @@ function post_filter( $content ) {
                  $link = get_the_permalink();
                  $link = str_replace(':', '%3A', $link);
                  $link = str_replace('/', '%2F', $link);
-                 $content = "<p>Sorry, this post is only available to members. <a href=\"$login_link?redirect_to=$link\">Sign in/Register</a></p>";
+                 $content = "<p>Sorry, this post is only available to members. <a href=\"$login_link?redirect_to=$link\">Sign in</a></p>";
              } else {
-                 $content = "<p> Sorry, this post is only available to members. <a href=\"$login_link\"> Login Here. </a><p>"; }
+                 $content = "<p> Sorry, this post is only available to members. <a href=\"$login_link\"> Sign in. </a><p>"; }
              return $content;
          }
     } else {
