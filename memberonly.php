@@ -70,7 +70,7 @@
     /* Create input fields*/
     public function field_callback ( $args ) {
         if ( "categories" === $args[ 'context' ]){
-                echo "<textarea name=\"categories\" id=\"categories\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\" value=\"" .get_option("categories"). "\"></textarea>";
+                echo "<textarea name=\"categories\" id=\"categories\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("categories"). "</textarea>";
         }else if ( "loginURL" === $args['context']){
             echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
         }else if ( "redirect" === $args['context']){
