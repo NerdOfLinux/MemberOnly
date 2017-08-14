@@ -51,6 +51,8 @@
                 break;
             case "redirect":
                 echo "Check the box to redirect the user after they login:";
+                $test = get_option("redirect");
+                echo $test;
         }
     }
     public function setup_init() {
@@ -74,7 +76,7 @@
         }else if ( "loginURL" === $args['context']){
             echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
         }else if ( "redirect" === $args['context']){
-            echo "<input name=\"redirect\" id=\"redirect\" type=\"checkbox\" value=\"" .checked("redirect", get_option('redirect')). "value=\"redirect\""\\>";
+            echo "<input name=\"redirect\" id=\"redirect\" type=\"checkbox\" value=\"" .get_option("redirect"). "\"\>";
         }
     }
     }
