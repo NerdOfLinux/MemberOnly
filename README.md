@@ -9,3 +9,7 @@ and the other hundred Stack Overflow questions and answers that helped me with c
 Here's the zip file: 
 https://github.com/NerdOfLinux/MemberOnly/archive/master.zip<br>
 Just upload it as a WordPress plugin and configure it.
+
+To make your own plugin, I suggest these guides(the ones I think I used):
+https://www.smashingmagazine.com/2011/09/how-to-create-a-wordpress-plugin/
+https://www.smashingmagazine.com/2016/04/three-approaches-to-adding-configurable-fields-to-your-plugin/
