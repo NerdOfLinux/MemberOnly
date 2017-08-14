@@ -17,14 +17,13 @@ class member_only {
     }
     public function settings_page() {
         //Create the menu item and page
+        $parent_slug = "member_only";
         $page_title = "Member Only Content Settings Page";
         $menu_title = "Member Only Content";
         $capability = "manage_options";
         $slug = "member_only";
         $callback = array( $variables, 'settings_page_content' );
-        $icon = "dashicons-admin-plugins";
-        $position = 100;
-        add_submenu_page( 'options-general.php', $page_title, $menu_title, $capability, $slug, $callback );
+        add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $slug, $callback );
     }
     /* Create the page*/
     public function settings_page_content() {
