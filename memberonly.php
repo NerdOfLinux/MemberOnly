@@ -64,7 +64,7 @@
         add_settings_field( 'loginURL', 'Login URL: ', array( $this, 'field_callback' ), 'member_only_fields', 'loginURL',  array( 'context' => 'loginURL'));
         
         register_setting("member_only_fields", "redirect");
-        add_settings_section("redirect", "Redirect User?: ", array($this, 'section_callback'), "member_only_fields");
+        add_settings_section("redirect", "Redirect User: ", array($this, 'section_callback'), "member_only_fields");
         add_settings_field( 'redirect', 'Redirect User?: ', array( $this, 'field_callback' ), 'member_only_fields', 'redirect',  array( 'context' => 'redirect'));
     }
     /* Create input fields*/
