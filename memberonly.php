@@ -28,7 +28,7 @@ class member_only {
     /* Create the page*/
     public function settings_page_content() { ?>
         <div class="wrap">
-            <h2> Member Only Content </h2>Content
+            <h2> Member Only Content </h2>
             <form method="post" action="options.php">
                 <?php
                     settings_fields("member_only_fields");
@@ -37,6 +37,14 @@ class member_only {
                 ?>
             </form>
     <?php
+    }
+    /* Add options to settings page*/
+    public function setup_sections() {
+        add_settings_section("first_section", "Member Only Categories: ", array($this, 'section_callback'), "member_only_fields");
+    }
+    /* Setup section_callback */
+    public function section_callback( $arguments ) {
+        echo "Hello World!";
     }
 }
 new member_only();
