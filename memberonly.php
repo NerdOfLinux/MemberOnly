@@ -14,6 +14,7 @@ class member_only {
         //$this = [];
         // Hook into the admin menu
         add_action( 'admin_menu', array( $this, 'settings_page' ) );
+        add_action( 'admin_init', array( $this, 'setup_sections' ) );
     }
     public function settings_page() {
         //Create the menu item and page
