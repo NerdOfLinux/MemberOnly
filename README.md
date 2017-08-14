@@ -5,3 +5,7 @@ Thank you to:
 
 https://stackoverflow.com/questions/45680285/wordpress-error-options-page-not-found
 and the other hundred Stack Overflow questions and answers that helped me with coding this.
+
+Here's the zip file: 
+https://codeload.github.com/NerdOfLinux/Scripts/zip/master
+Just upload it as a WordPress plugin and configure it.
