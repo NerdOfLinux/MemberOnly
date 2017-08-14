@@ -9,6 +9,8 @@
   License: MIT
  */
 class member_only {
+    /* Create blank array */
+    $variables = [];
     public function __construct() {
         // Hook into the admin menu
         add_action( 'admin_menu', array( $variables, 'settings_page' ) );
@@ -22,6 +24,7 @@ class member_only {
         $callback = array( $variables, 'settings_page_content' );
         $icon = "dashicons-admin-plugins";
         $position = 100;
+        add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
     }
     /* Create the page*/
     public function settings_page_content() {
