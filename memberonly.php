@@ -84,7 +84,7 @@ function post_filter( $content ) {
      /* If the user is logged in, then show the content*/
      if ( is_user_logged_in() ) {
          $test = $options['categories'];
-         echp $test;
+         echo $test;
          return $content;
      /* Else tell the user to log in */
      } else {
