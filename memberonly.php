@@ -92,7 +92,7 @@
             $options = get_option( 'redirect' );
             echo "<input type=\"checkbox\" id=\"redirect\" name=\"redirect\" value=\"1\"" . checked( 1, $options['redirect'], false ) . "/>";
         }else if ( "message" === $args['context']) {
-            echo "<textarea name=\"message\" id=\"message\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("message", "Sorry, this post is for members only.  [sign_in]"). "</textarea>";
+            echo "<textarea name=\"message\" id=\"message\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("message3", "Sorry, this post is for members only.  [sign_in]"). "</textarea>";
         }else if ( "loginText" === $args['context']){
             echo "<input name=\"loginText\" id=\"loginText\" type=\"text\" value=\"" .get_option("loginText"). "\"\>";
         }
