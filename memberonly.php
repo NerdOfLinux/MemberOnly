@@ -63,14 +63,10 @@
     }
     /* Create input fields*/
     public function field_callback ( $arguments ) {
-        switch( $arguments['name'] ) {
-            case "categories":
+        if ( "categories" === $arguments[ 'context' ]){
                 echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
-                break;
-            case "loginURL":
-                echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
-                break;
-        }
+        }else if ( "loginURL" === $arguments["context"]){
+            echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>"; }
     }
     }
 new member_only();
