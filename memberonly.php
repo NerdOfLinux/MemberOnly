@@ -57,14 +57,20 @@
         add_settings_section("categories", "Member Only Categories: ", array($this, 'section_callback'), "member_only_fields");
         add_settings_field( 'categories', 'Categories: ', array( $this, 'field_callback' ), 'member_only_fields', 'categories' );
         
-        /* register_setting("member_only_fields", "loginURL");
+        register_setting("member_only_fields", "loginURL");
         add_settings_section("loginURL", "Login URL: ", array($this, 'section_callback'), "member_only_fields");
-        add_settings_field( 'loginURL', 'Login URL: ', array( $this, 'field_callback' ), 'member_only_fields', 'loginURL' ); */
+        add_settings_field( 'loginURL', 'Login URL: ', array( $this, 'field_callback' ), 'member_only_fields', 'loginURL' );
     }
     /* Create input fields*/
     public function field_callback ( $arguments ) {
-        echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
-        //echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
+        switch( $arguments['id'] ) {
+            case "categories":
+                echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
+                break;
+            case "loginURL":
+                echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
+                break;
+        }
     }
     }
 new member_only();
