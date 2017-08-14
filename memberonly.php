@@ -23,7 +23,7 @@ class member_only {
         $capability = "manage_options";
         $slug = "member_only";
         $callback = array( $this, 'settings_page_content' );
-        add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $slug, $callback );
+        add_submenu_page( "options-general.php", $page_title, $menu_title, $capability, $slug, $callback );
     }
     /* Create the page*/
     public function settings_page_content() {
