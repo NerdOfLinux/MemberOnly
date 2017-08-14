@@ -58,7 +58,7 @@ class member_only {
         }
     }
     public function setup_fields() {
-        add_settings_field( 'first_field', 'Categories: ', array( $this, 'field_callback' ), 'member_only_fields', 'first_section' );
+        add_settings_field( 'categories', 'Categories: ', array( $this, 'field_callback' ), 'member_only_fields', 'first_section' );
     }
     /* Create input fields*/
         public function field_callback ( $arguments ) {
