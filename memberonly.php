@@ -51,8 +51,6 @@
                 break;
             case "redirect":
                 echo "Check the box to redirect the user after they login:";
-                $test = get_option("redirect");
-                echo $test;
         }
     }
     public function setup_init() {
@@ -76,7 +74,11 @@
         }else if ( "loginURL" === $args['context']){
             echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
         }else if ( "redirect" === $args['context']){
-            echo "<input name=\"redirect\" id=\"redirect\" type=\"checkbox\" value=\"" .get_option("redirect"). "\"\>";
+            $options = get_option( 'sandbox_theme_input_examples' );
+            
+            $html = '<input type="checkbox" id="redirect" name="redirect" value="1"' . checked( 1, $options['redirect'], false ) . '/>';
+            
+            echo $html;
         }
     }
     }
@@ -94,8 +96,6 @@ function post_filter( $content ) {
      /* If the user is logged in, then show the content*/
      if ( is_user_logged_in() ) {
          $test = get_option("redirect");
-         echo $test;
-         return $content;
      /* Else tell the user to log in */
      } else {
          /* $link = get_the_permalink();
