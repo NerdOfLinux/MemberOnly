@@ -84,6 +84,8 @@ add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
     /* Get variables */
+    $options = get_option("redirect");
+    $redirect = checked( 1, $options['redirect'], false );
     $login_link = get_option("loginURL");
     $member_categories = get_option("categories");
     /* Create categories that are member only*/
@@ -94,12 +96,15 @@ function post_filter( $content ) {
      if ( is_user_logged_in() ) {
          $test = get_option("redirect");
      /* Else tell the user to log in */
+     $content = "";
      } else {
-         /* $link = get_the_permalink();
-         $link = str_replace(':', '%3A', $link);
-         $link = str_replace('/', '%2F', $link);
-         $content = "<p>Sorry, this post is only available to members. <a href=\"gateblogs.com/login?redirect_to=$link\">Sign in/Register</a></p>"; */
-         $content= "<p> Sorry, this post is member only. <a href=\"$login_link\"> Login Here. </a><p>";
+         if ( $redirect ){
+             $link = get_the_permalink();
+             $link = str_replace(':', '%3A', $link);
+             $link = str_replace('/', '%2F', $link);
+             $content = "<p>Sorry, this post is only available to members. <a href=\"$login_link?redirect_to=$link\">Sign in/Register</a></p>";
+         } else {
+             $content = "<p> Sorry, this post is member only. <a href=\"$login_link\"> Login Here. </a><p>"; }
          return $content;
      }
     } else {
