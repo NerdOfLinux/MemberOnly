@@ -24,6 +24,7 @@ class member_only {
         $callback = array( $variables, 'settings_page_content' );
         $icon = "dashicons-admin-plugins";
         $position = 100;
+        
         add_menu_page( $page_title, $menu_title, $capability, $slug, $callback, $icon, $position );
     }
     /* Create the page*/
