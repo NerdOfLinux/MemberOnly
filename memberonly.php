@@ -63,7 +63,7 @@
     }
     /* Create input fields*/
     public function field_callback ( $arguments ) {
-        switch( $arguments['id'] ) {
+        switch( $arguments['name'] ) {
             case "categories":
                 echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
                 break;
