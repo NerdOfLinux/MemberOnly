@@ -19,11 +19,11 @@ class member_only {
     }
     public function settings_page() {
         //Create the menu item and page
-        $parent_slug = "member_only";
+        $parent_slug = "member_only_fields";
         $page_title = "Member Only Content Settings Page";
         $menu_title = "Member Only Content";
         $capability = "manage_options";
-        $slug = "member_only";
+        $slug = "member_only_fields";
         $callback = array( $this, 'settings_page_content' );
         add_submenu_page( "options-general.php", $page_title, $menu_title, $capability, $slug, $callback );
     }
