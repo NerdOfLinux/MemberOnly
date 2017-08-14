@@ -24,14 +24,6 @@ class member_only {
         $slug = "member_only";
         $callback = array( $variables, 'settings_page_content' );
         //add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $slug, $callback );
-        add_submenu_page(
-                         'edit.php?post_type=woo-wholesale',
-                         'Registrations',
-                         'Registrations',
-                         'manage_options',
-                         'woo-wholesale-registrations', 
-                         'wwpr_page_call' 
-                         );
     }
     /* Create the page*/
     public function settings_page_content() {
