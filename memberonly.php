@@ -74,7 +74,7 @@
         }else if ( "loginURL" === $args['context']){
             echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
         }else if ( "redirect" === $args['context']){
-            echo "<input name=\"redirect\" id=\"redirect\" type=\"checkbox\" value=\"" .checked( get_option['redirect'], 1). "\"\>";
+            echo "<input name=\"redirect\" id=\"redirect\" type=\"checkbox\" value=\"" .checked(1, $options['redirect'], false). "\"\>";
         }
     }
     }
