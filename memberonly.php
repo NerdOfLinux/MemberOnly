@@ -91,21 +91,21 @@ function post_filter( $content ) {
     $categories = explode(",", $member_categories);
     /* If the post is in the category */
     if ( in_category( $categories ) ) {
-     /* If the user is logged in, then show the content*/
-     if ( is_user_logged_in() ) {
-         $test = get_option("redirect");
-     /* Else tell the user to log in */
-     $content = "";
-     } else {
-         if ( $redirect ){
-             $link = get_the_permalink();
-             $link = str_replace(':', '%3A', $link);
-             $link = str_replace('/', '%2F', $link);
-             $content = "<p>Sorry, this post is only available to members. <a href=\"$login_link?redirect_to=$link\">Sign in/Register</a></p>";
+         /* If the user is logged in, then show the content*/
+         if ( is_user_logged_in() ) {
+             return $content;
+         /* Else tell the user to log in */
          } else {
-             $content = "<p> Sorry, this post is member only. <a href=\"$login_link\"> Login Here. </a><p>"; }
-         return $content;
-     }
+             $content = "";
+             if ( $redirect ){
+                 $link = get_the_permalink();
+                 $link = str_replace(':', '%3A', $link);
+                 $link = str_replace('/', '%2F', $link);
+                 $content = "<p>Sorry, this post is only available to members. <a href=\"$login_link?redirect_to=$link\">Sign in/Register</a></p>";
+             } else {
+                 $content = "<p> Sorry, this post is member only. <a href=\"$login_link\"> Login Here. </a><p>"; }
+             return $content;
+         }
     } else {
       return $content;
     }
