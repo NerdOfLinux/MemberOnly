@@ -1,7 +1,7 @@
 <?php
  /*
   Plugin Name: Member Only Content
-  Plugin URI: https://gateblogs.com
+  Plugin URI: https://github.com/NerdOfLinux/MemberOnly
   Description: A simple plugin to create member only content
   Version: 0.1
   Author: NerdOfLinux
