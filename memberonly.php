@@ -28,16 +28,17 @@
         }
         /* Create the page*/
         public function settings_page_content() { ?>
-<div class="wrap">
-<h2> Member Only Content </h2>
-<form method="post" action="options.php">
-<?php
-    settings_fields("member_only_fields");
-    do_settings_sections("member_only_fields");
-    submit_button();
-    ?>
-</form>
-<?php }
+            <div class="wrap">
+            <h2> Member Only Content </h2>
+            <form method="post" action="options.php">
+            <?php
+                settings_fields("member_only_fields");
+                do_settings_sections("member_only_fields");
+                submit_button();
+                ?>
+            </form>
+            <?php
+        }
     /* Setup section_callback */
     public function section_callback( $arguments ) {
         /* Set up input*/
@@ -56,9 +57,9 @@
         add_settings_section("categories", "Member Only Categories: ", array($this, 'section_callback'), "member_only_fields");
         add_settings_field( 'categories', 'Categories: ', array( $this, 'field_callback' ), 'member_only_fields', 'categories' );
         
-        register_setting("member_only_fields", "loginURL");
+        /* register_setting("member_only_fields", "loginURL");
         add_settings_section("loginURL", "Login URL: ", array($this, 'section_callback'), "member_only_fields");
-        add_settings_field( 'loginURL', 'Login URL: ', array( $this, 'field_callback' ), 'member_only_fields', 'loginURL' );
+        add_settings_field( 'loginURL', 'Login URL: ', array( $this, 'field_callback' ), 'member_only_fields', 'loginURL' ); */
     }
     /* Create input fields*/
     public function field_callback ( $arguments ) {
