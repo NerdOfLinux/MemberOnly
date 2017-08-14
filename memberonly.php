@@ -74,7 +74,6 @@ add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
     /* Get variables */
-    $options = get_option("member_only_fields", "blank");
     /* Create categories that are member only*/
     $categories = array(
      'premium',
@@ -83,8 +82,8 @@ function post_filter( $content ) {
     if ( in_category( $categories ) ) {
      /* If the user is logged in, then show the content*/
      if ( is_user_logged_in() ) {
-         $test = $options['loginURL'];
-         echo $test;
+         $test = get_option("loginURL");
+         echo "$test";
          return $content;
      /* Else tell the user to log in */
      } else {
