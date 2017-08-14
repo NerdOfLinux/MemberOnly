@@ -85,16 +85,16 @@
     /* Create input fields*/
     public function field_callback ( $args ) {
         if ( "categories" === $args[ 'context' ]){
-                echo "<textarea name=\"categories\" id=\"categories\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("categories"). "</textarea>";
+                echo "<textarea name=\"categories\" id=\"categories\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("categories", "member-only"). "</textarea>";
         }else if ( "loginURL" === $args['context']){
-            echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
+            echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL", "/login"). "\"\>";
         }else if ( "redirect" === $args['context']){
             $options = get_option( 'redirect' );
             echo "<input type=\"checkbox\" id=\"redirect\" name=\"redirect\" value=\"1\"" . checked( 1, $options['redirect'], false ) . "/>";
         }else if ( "message" === $args['context']) {
-            echo "<textarea name=\"message\" id=\"message\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("message3", "Sorry, this post is for members only.  [sign_in]"). "</textarea>";
+            echo "<textarea name=\"message\" id=\"message\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("message", "Sorry, this post is for members only.  [sign_in]"). "</textarea>";
         }else if ( "loginText" === $args['context']){
-            echo "<input name=\"loginText\" id=\"loginText\" type=\"text\" value=\"" .get_option("loginText"). "\"\>";
+            echo "<input name=\"loginText\" id=\"loginText\" type=\"text\" value=\"" .get_option("loginText", "Sign In/Register."). "\"\>";
         }
     }
     }
@@ -104,10 +104,10 @@ add_filter( 'the_content', 'post_filter' );
 function post_filter( $content ) {
     /* Get variables */
     $redirect = get_option("redirect");
-    $login_link = get_option("loginURL");
-    $member_categories = get_option("categories");
-    $message = get_option("message");
-    $loginText = get_option("loginText");
+    $login_link = get_option("loginURL", "/login");
+    $member_categories = get_option("categories", "member-only");
+    $message = get_option("message", "Sorry, this post is for members only.  [sign_in]");
+    $loginText = get_option("loginText", "Sign In/Register.");
     /* Create categories that are member only*/
     $categories = explode(",", $member_categories);
     /* If the post is in the category */
