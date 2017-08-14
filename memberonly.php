@@ -10,8 +10,8 @@
  */
 class member_only {
     /* Create blank array */
-    $variables = [];
     public function __construct() {
+        $variables = [];
         // Hook into the admin menu
         add_action( 'admin_menu', array( $variables, 'settings_page' ) );
     }
