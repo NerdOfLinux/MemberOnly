@@ -13,7 +13,7 @@
     $icon = 'dashicons-admin-plugins';
     $position = 100;
   }
-  /* Create teh page*/
+  /* Create the page*/
   function settings_page_content() {
     echo "Test of settings page."; 
   }
