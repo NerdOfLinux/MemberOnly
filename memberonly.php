@@ -11,9 +11,9 @@
 class member_only {
     /* Create blank array */
     public function __construct() {
-        $variables = [];
+        //$this = [];
         // Hook into the admin menu
-        add_action( 'admin_menu', array( $variables, 'settings_page' ) );
+        add_action( 'admin_menu', array( $this, 'settings_page' ) );
     }
     public function settings_page() {
         //Create the menu item and page
@@ -22,8 +22,8 @@ class member_only {
         $menu_title = "Member Only Content";
         $capability = "manage_options";
         $slug = "member_only";
-        $callback = array( $variables, 'settings_page_content' );
-        //add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $slug, $callback );
+        $callback = array( $this, 'settings_page_content' );
+        add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $slug, $callback );
     }
     /* Create the page*/
     public function settings_page_content() {
