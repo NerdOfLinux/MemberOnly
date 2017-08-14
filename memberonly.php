@@ -75,10 +75,7 @@
             echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
         }else if ( "redirect" === $args['context']){
             $options = get_option( 'redirect' );
-            
-            $html = '<input type="checkbox" id="redirect" name="redirect" value="1"' . checked( 1, $options['redirect'], false ) . '/>';
-            
-            echo $html;
+            echo "<input type=\"checkbox\" id=\"redirect\" name=\"redirect\" value=\"1\"" . checked( 1, $options['redirect'], false ) . "/>";
         }
     }
     }
