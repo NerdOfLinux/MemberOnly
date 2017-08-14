@@ -27,7 +27,6 @@ class member_only {
     public function settings_page_content() {
         echo "Test of settings page."; 
     }
- add_filter( 'the_content', 'post_filter' );
  /* Create the function */
  public function post_filter( $content ) {
      /* Create categories that are member only*/
@@ -54,4 +53,5 @@ class member_only {
  }
 }
 new member_only();
+add_filter( 'the_content', 'post_filter' );
 ?>
