@@ -49,6 +49,8 @@
             case "loginURL":
                 echo "The login URL of your site. ";
                 break;
+            case "redirect":
+                echo "Check the box to redirect the user after they login:";
         }
     }
     public function setup_init() {
@@ -60,6 +62,10 @@
         register_setting("member_only_fields", "loginURL");
         add_settings_section("loginURL", "Login URL: ", array($this, 'section_callback'), "member_only_fields");
         add_settings_field( 'loginURL', 'Login URL: ', array( $this, 'field_callback' ), 'member_only_fields', 'loginURL',  array( 'context' => 'loginURL'));
+        
+        register_setting("member_only_fields", "redirect");
+        add_settings_section("redirect", "Redirect User?: ", array($this, 'section_callback'), "member_only_fields");
+        add_settings_field( 'redirect', 'Redirect User?: ', array( $this, 'field_callback' ), 'member_only_fields', 'redirect',  array( 'context' => 'redirect'));
     }
     /* Create input fields*/
     public function field_callback ( $args ) {
@@ -67,6 +73,9 @@
                 echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
         }else if ( "loginURL" === $args['context']){
             echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>"; }
+        else if{
+            echo "<input name=\"redirect\" id=\"redirect\" type=\"checkbox\" value=\"" .get_option("redirect"). "\"\>";
+        }
     }
     }
 new member_only();
