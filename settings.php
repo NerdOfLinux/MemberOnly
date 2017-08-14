@@ -3,7 +3,7 @@
     // Hook into the admin menu
     add_action( 'admin_menu', array( $variables, 'settings_page' ) );
   }
-  public function settings_page() {
+  function settings_page() {
     //Create the menu item and page
     $page_title = "Member Only Content Settings Page";
     $menu_title = "Member Only Content";
