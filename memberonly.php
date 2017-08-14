@@ -8,9 +8,9 @@
   Author URI: https://gateblogs.com
   License: MIT
  */
-/* Include settings.php */
-include("settings.php");
 class member_only {
+ /* Include settings.php */
+ include("settings.php");
  add_filter( 'the_content', 'post_filter' );
  /* Create the function */
  function post_filter( $content ) {
