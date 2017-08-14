@@ -72,8 +72,8 @@
         if ( "categories" === $args[ 'context' ]){
                 echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
         }else if ( "loginURL" === $args['context']){
-            echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>"; }
-        else if{
+            echo "<input name=\"loginURL\" id=\"loginURL\" type=\"text\" value=\"" .get_option("loginURL"). "\"\>";
+        }else if ( "redirect" === $args['context']){
             echo "<input name=\"redirect\" id=\"redirect\" type=\"checkbox\" value=\"" .get_option("redirect"). "\"\>";
         }
     }
