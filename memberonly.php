@@ -57,6 +57,9 @@ class member_only {
             break;
         }
     }
+    public function setup_fields() {
+        add_settings_field( 'first_field', 'categories', array( $this, 'field_callback' ), 'member_only_fields', 'first_section' );
+    }
     /* Create input fields*/
         public function field_callback ( $arguments ) {
             echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
