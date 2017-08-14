@@ -42,6 +42,7 @@ class member_only {
     /* Add options to settings page*/
     public function setup_sections() {
         add_settings_section("first_section", "Member Only Categories: ", array($this, 'section_callback'), "member_only_fields");
+        add_settings_section("second_section", "Login URL: ", array($this, 'section_callback'), "member_only_fields");
     }
     /* Setup section_callback */
     public function section_callback( $arguments ) {
