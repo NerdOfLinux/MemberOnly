@@ -62,8 +62,8 @@ class member_only {
     }
     /* Create input fields*/
         public function field_callback ( $arguments ) {
-            echo "<input name=\"categories\" id=\"member_only\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
-            register_setting("member_only", "first_field");
+            echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
+            register_setting("member_only", "categories");
         }
 }
 new member_only();
