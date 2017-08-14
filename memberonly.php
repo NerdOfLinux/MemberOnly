@@ -32,8 +32,8 @@ class member_only {
      } else {
           return $content;
      }
- }
- add_filter( 'the_content', 'post_filter' ); 
+ } 
 }
 new member_only();
+add_filter( 'the_content', 'post_filter' );
 ?>
