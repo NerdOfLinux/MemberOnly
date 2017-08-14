@@ -15,6 +15,7 @@ class member_only {
         // Hook into the admin menu
         add_action( 'admin_menu', array( $this, 'settings_page' ) );
         add_action( 'admin_init', array( $this, 'setup_sections' ) );
+        add_action( 'admin_init', array( $this, 'setup_fields' ) );
     }
     public function settings_page() {
         //Create the menu item and page
@@ -41,21 +42,25 @@ class member_only {
     }
     /* Add options to settings page*/
     public function setup_sections() {
-        add_settings_section("first_section", "Member Only Categories: ", array($this, 'section_callback'), "member_only_fields");
-        add_settings_section("second_section", "Login URL: ", array($this, 'section_callback'), "member_only_fields");
+        add_settings_section("categories", "Member Only Categories: ", array($this, 'section_callback'), "member_only_fields");
+        add_settings_section("loginUrl", "Login URL: ", array($this, 'section_callback'), "member_only_fields");
     }
     /* Setup section_callback */
     public function section_callback( $arguments ) {
         /* Set up input*/
         switch( $arguments['id'] ){
-            case "first_section" :
-                echo "Member Only Categories: ";
+            case "categories" :
+                echo "Categories that will trigger the member only message.";
                 break;
-            case "second_section":
-                echo "Login URL: ";
+            case "loginURL":
+                echo "The login URL of your site. ";
             break;
         }
     }
+    /* Create input fields*/
+        public function field_callback ( $arguments ) {
+            echo "<input name=\"categories\" id=\"categories\" type=\"text\" value=\"" .get_option("categories"). "\"\>";
+        }
 }
 new member_only();
 add_filter( 'the_content', 'post_filter' );
