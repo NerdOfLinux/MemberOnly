@@ -108,6 +108,7 @@ function post_filter( $content ) {
     $member_categories = get_option("categories");
     $message = get_option("message");
     $loginText = get_option("loginText");
+    $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link?redirect_to=$link\">$loginText</a></p>", $message)
     /* Create categories that are member only*/
     $categories = explode(",", $member_categories);
     /* If the post is in the category */
@@ -122,9 +123,9 @@ function post_filter( $content ) {
                  $link = get_the_permalink();
                  $link = str_replace(':', '%3A', $link);
                  $link = str_replace('/', '%2F', $link);
-                 $content = "<p>$message<a href=\"$login_link?redirect_to=$link\">$loginText</a></p>";
+                 $content = "<p>$loginMessage</p>";
              } else {
-                 $content = "<p>$message<a href=\"$login_link\">$loginText</a></p>"; }
+                 $content = "<p>$loginMessage</p>"; }
              return $content;
          }
     } else {
