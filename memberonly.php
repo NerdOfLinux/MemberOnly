@@ -9,7 +9,7 @@
   License: GPL
  */
 /* Include the settings page */
-include("settings.php");
+include("memberonly-settings.php");
 add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
