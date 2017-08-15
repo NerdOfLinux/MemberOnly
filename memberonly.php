@@ -6,7 +6,7 @@
   Version: 0.1
   Author: NerdOfLinux
   Author URI: https://gateblogs.com/user/nerdoflinux
-  License: MIT
+  License: GPLv3
  */
     class Member_Only {
         /* Create blank array */
