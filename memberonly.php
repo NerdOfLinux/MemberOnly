@@ -3,7 +3,7 @@
   Plugin Name: Member Only Content
   Plugin URI: https://github.com/NerdOfLinux/MemberOnly
   Description: A simple plugin to create member only content
-  Version: 0.1
+  Version: 0.2
   Author: NerdOfLinux
   Author URI: https://gateblogs.com/user/nerdoflinux
   License: GPL
@@ -13,7 +13,7 @@ include("settings.php");
 add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
-    /* Get variables */
+    /* Get variables or use defaults */
     $redirect = get_option("redirect");
     $login_link = get_option("loginURL", "/wp-login.php");
     $member_categories = get_option("categories", "member-only");
