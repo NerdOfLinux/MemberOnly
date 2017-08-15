@@ -27,8 +27,7 @@ class Member_Only {
         submit_button();
         ?>
         </form>
-        <?php
-    }
+    <?php }
     /* Setup section_callback */
     public function section_callback( $arguments ) {
         /* Set up input*/
