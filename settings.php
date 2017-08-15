@@ -1,3 +1,4 @@
+<?php
 /* The settings page */
 class Member_Only {
     public function __construct() {
@@ -87,4 +88,4 @@ class Member_Only {
         }
     }
 }
-new member_only();
+new member_only(); ?>
