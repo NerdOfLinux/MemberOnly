@@ -1,13 +1,4 @@
 <?php
- /*
-  Plugin Name: Member Only Content
-  Plugin URI: https://github.com/NerdOfLinux/MemberOnly
-  Description: A simple plugin to create member only content
-  Version: 0.2
-  Author: NerdOfLinux
-  Author URI: https://gateblogs.com/user/nerdoflinux
-  License: GPL
- */
 /* Include the settings page */
 include("memberonly-settings.php");
 add_filter( 'the_content', 'post_filter' );
