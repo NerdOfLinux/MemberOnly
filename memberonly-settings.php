@@ -42,7 +42,7 @@ class Member_Only {
                 echo "Check the box to redirect the user after they login:";
                 break;
             case "message":
-                echo "The message to show to not signed in users. Use [sign_in] for your sign in link.";
+                echo "The message to show to not signed in users(you can use HTML). Use [sign_in] for your sign in link.";
                 break;
             case "loginText":
                 echo "The hyperlinked text that leads to your login page.";
