@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: Member Only Content
- Plugin URI: https://github.com/NerdOfLinux/MemberOnly
+ Plugin URI: https://nerdoflinux.github.io/plugins/memberonly.html
  Description: A simple plugin to create member only content
  Version: 0.2
  Author: NerdOfLinux
