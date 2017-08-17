@@ -40,6 +40,7 @@ function post_filter( $content ) {
                 $content = "<p>$loginMessage</p>"; }
             return $content;
         }
+    /* If the post is not in the category */
     } else {
         return $content;
     }
