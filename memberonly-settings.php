@@ -48,7 +48,7 @@ class Member_Only {
                 echo "The hyperlinked text that leads to your login page.";
                 break;
             case "redirectTitle":
-                echo "Check the box to redirect users that visit the post."
+                echo "Check the box to redirect users that visit the post.";
                 break;
         }
     }
