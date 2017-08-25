@@ -43,14 +43,15 @@ function post_filter( $content ) {
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link\">$loginText</a></p>", $message);
                 $content = "<p>$loginMessage</p>"; }
             return $content; }
-         
+            if ( $redirectTitle ) {
             add_filter( 'post_link', 'change_post_link', 99, 3 );
             function change_post_link( $url, $post, $leavename = false ) {
                     if ( !is_user_logged_in()) {
                     $url = $GLOBALS["login_link"];
                     $url .= "?redirect_to=";
                     $url .= $GLOBALS["link"];}
-                    return $url; }
+                    return $url; } 
+            }
         /* If the post is not in the category */
        } else {
            return $content;
