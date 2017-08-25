@@ -39,16 +39,18 @@ function post_filter( $content ) {
                 $GLOBALS["login_link"] = $login_link;
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link?redirect_to=$link\">$loginText</a></p>", $message);
                 $content = "<p>$loginMessage</p>";
-                add_filter( 'post_link', 'change_post_link', 99, 3 );
-                function change_post_link( $url, $post, $leavename = false ) {
-                        $url = $GLOBALS["login_link"];
-                        $url .= "?redirect_to=";
-                        $url .= $GLOBALS["link"];
-                        return $url; }
             } else {
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link\">$loginText</a></p>", $message);
                 $content = "<p>$loginMessage</p>"; }
-            return $content;
+            return $content; } else
+         
+                add_filter( 'post_link', 'change_post_link', 99, 3 );
+                function change_post_link( $url, $post, $leavename = false ) {
+                        if ( !is_user_logged_in() {
+                        $url = $GLOBALS["login_link"];
+                        $url .= "?redirect_to=";
+                        $url .= $GLOBALS["link"];}
+                        return $url; }
         }
     /* If the post is not in the category */
     } else {
