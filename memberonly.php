@@ -43,7 +43,7 @@ function post_filter( $content ) {
                 function change_post_link( $url, $post, $leavename = false ) {
                         $url = $GLOBALS["login_link"];
                         $url .= "?redirect_to=";
-                        $url .= $GLOABLS["link"];
+                        $url .= $GLOBALS["link"];
                         return $url; }
             } else {
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link\">$loginText</a></p>", $message);
