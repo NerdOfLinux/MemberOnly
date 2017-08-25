@@ -35,11 +35,13 @@ function post_filter( $content ) {
                 $link = get_the_permalink();
                 $link = str_replace(':', '%3A', $link);
                 $link = str_replace('/', '%2F', $link);
+                $GLOBALS["link"] = $link;
+                $GLOBALS["login_link"] = $login_link;
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link?redirect_to=$link\">$loginText</a></p>", $message);
                 $content = "<p>$loginMessage</p>";
                 add_filter( 'post_link', 'change_post_link', 99, 3 );
                 function change_post_link( $url, $post, $leavename = false ) {
-                        $url = "$login_link?redirect_to=$link"; // Your new URL...
+                        $url = "$GLOBALS['login_link']?redirect_to=$GLOBALS['link']"; // Your new URL...
                         return $url; }
             } else {
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link\">$loginText</a></p>", $message);
