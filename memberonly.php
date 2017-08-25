@@ -20,6 +20,7 @@ function post_filter( $content ) {
     $message = get_option("message", "Sorry, this post is for members only.  [sign_in]");
     $loginText = get_option("loginText", "Sign In/Register.");
     $redirectTitle = get_option("redirectTitle");
+    $currentURL=$_SERVER['REQUEST_URI'];
     /* Create categories that are member only*/
     $categories = explode(",", $member_categories);
     /* If the post is in the category */
@@ -36,7 +37,7 @@ function post_filter( $content ) {
                 $link = str_replace('/', '%2F', $link);
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link?redirect_to=$link\">$loginText</a></p>", $message);
                 $content = "<p>$loginMessage</p>";
-                if ( $redirectTitle ) {
+                if ( $redirectTitle and $currentURL == $get_the_permalink()) {
                   header("Location: $login_link?redirect_to=$link");
                 }
             } else {
