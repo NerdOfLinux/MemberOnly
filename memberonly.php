@@ -50,7 +50,7 @@ function post_filter( $content ) {
                     $url = $GLOBALS["login_link"];
                     $url .= "?redirect_to=";
                     $url .= $GLOBALS["link"];}
-                    return $url; }
+                    return $url; }}
         }
     /* If the post is not in the category */
     } else {
