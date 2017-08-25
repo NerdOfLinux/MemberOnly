@@ -19,7 +19,7 @@ function post_filter( $content ) {
     $member_categories = get_option("categories", "member-only");
     $message = get_option("message", "Sorry, this post is for members only.  [sign_in]");
     $loginText = get_option("loginText", "Sign In/Register.");
-    $redirecTitle = get_option("redirectTitle");
+    $redirectTitle = get_option("redirectTitle");
     /* Create categories that are member only*/
     $categories = explode(",", $member_categories);
     /* If the post is in the category */
