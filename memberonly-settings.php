@@ -47,6 +47,9 @@ class Member_Only {
             case "loginText":
                 echo "The hyperlinked text that leads to your login page.";
                 break;
+            case "redirectTitle":
+                echo "Check the box to redirect users that visit the post."
+                break;
         }
     }
     /* Register settings */
@@ -70,6 +73,10 @@ class Member_Only {
         register_setting("member_only_fields", "message");
         add_settings_section("message", "Message: ", array($this, 'section_callback'), "member_only_fields");
         add_settings_field( 'message', 'Message: ', array( $this, 'field_callback' ), 'member_only_fields', 'message',  array( 'context' => 'message'));
+        
+        register_setting("member_only_fields", "redirectTitle");
+        add_settings_section("redirectTitle", "Redirect Post: ", array($this, 'section_callback'), "member_only_fields");
+        add_settings_field( 'redirectTitle', 'Redirect Post?: : ', array( $this, 'field_callback' ), 'member_only_fields', 'redirectTitle',  array( 'context' => 'redirectTitle'));
     }
     /* Create input fields*/
     public function field_callback ( $args ) {
@@ -83,7 +90,8 @@ class Member_Only {
         }else if ( "message" === $args['context']) {
             echo "<textarea name=\"message\" id=\"message\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("message", "Sorry, this post is for members only.  [sign_in]"). "</textarea>";
         }else if ( "loginText" === $args['context']){
-            echo "<input name=\"loginText\" id=\"loginText\" type=\"text\" value=\"" .get_option("loginText", "Sign In/Register."). "\"\>";
+            echo "<input name=\"loginText\" id=\"loginText\" type=\"text\" value=\"" .get_option("loginText", "Sign In/Register."). "\"\>";}else if ("redirectTitle" === $args['context']) {
+            echo "<input type=\"checkbox\" id=\"redirect\" name=\"redirectTitle\" value=\"1\"" . checked( 1, $options['redirectTitle'], false ) . "/>";
         }
     }
 }
