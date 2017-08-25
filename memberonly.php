@@ -37,7 +37,7 @@ function post_filter( $content ) {
                 $link = str_replace('/', '%2F', $link);
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link?redirect_to=$link\">$loginText</a></p>", $message);
                 $content = "<p>$loginMessage</p>";
-                if ( $redirectTitle and $currentURL == $get_the_permalink()) {
+                if ( $redirectTitle and $currentURL == get_the_permalink()) {
                   header("Location: $login_link?redirect_to=$link");
                 }
             } else {
