@@ -41,7 +41,9 @@ function post_filter( $content ) {
                 $content = "<p>$loginMessage</p>";
                 add_filter( 'post_link', 'change_post_link', 99, 3 );
                 function change_post_link( $url, $post, $leavename = false ) {
-                        $url = "$GLOBALS['login_link']?redirect_to=$GLOBALS['link']"; // Your new URL...
+                        $url = $GLOBALS["login_link"];
+                        $url .= "?redirect_to=";
+                        $url .= $GLOABLS["link"];
                         return $url; }
             } else {
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link\">$loginText</a></p>", $message);
