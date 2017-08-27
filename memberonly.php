@@ -16,8 +16,6 @@ $login_link = get_option("loginURL", "/wp-login.php");
 $member_categories = get_option("categories", "member-only");
 $message = get_option("message", "Sorry, this post is for members only.  [sign_in]");
 $loginText = get_option("loginText", "Sign In/Register.");
-$redirectTitle = get_option("redirectTitle");
-$currentURL=$_SERVER['REQUEST_URI'];
 add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
@@ -36,8 +34,6 @@ function post_filter( $content ) {
                 $link = get_the_permalink();
                 $link = str_replace(':', '%3A', $link);
                 $link = str_replace('/', '%2F', $link);
-                $GLOBALS["link"] = $link;
-                $GLOBALS["login_link"] = $login_link;
                 $loginMessage = str_replace('[sign_in]', "<a href=\"$login_link?redirect_to=$link\">$loginText</a></p>", $message);
                 $content = "<p>$loginMessage</p>";
             } else {
@@ -49,13 +45,4 @@ function post_filter( $content ) {
            return $content;
        }
 }
-    if ( $redirectTitle ) {
-        add_filter( 'post_link', 'change_post_link', 99, 3 );
-        function change_post_link( $url, $post, $leavename = false ) {
-            if ( !is_user_logged_in()) {
-                $url = $GLOBALS["login_link"];
-                $url .= "?redirect_to=";
-                $url .= $GLOBALS["link"];}
-            return $url; }
-    }
 ?>
