@@ -83,7 +83,7 @@ class member_only {
         }else if ( "message" === $args['context']) {
             echo "<textarea name=\"message\" id=\"message\" type=\"text\" wrap=\"hard\" rows=\"4\" cols=\"50\">" .get_option("message", "Sorry, this post is for members only.  [sign_in]"). "</textarea>";
         }else if ( "loginText" === $args['context']){
-            echo "<input name=\"loginText\" id=\"loginText\" type=\"text\" value=\"" .get_option("loginText", "Sign In/Register."). "\"\>";
+            echo "<input name=\"loginText\" id=\"loginText\" type=\"text\" value=\"" .get_option("loginText", "Sign In/Register."). "\"\>"; }
     }
 }
 new member_only(); ?>
