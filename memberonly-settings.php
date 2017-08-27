@@ -1,6 +1,6 @@
 <?php
 /* The settings page */
-class Member_Only {
+class member_only {
     public function __construct() {
         /* Hook into the admin menu */
         add_action( 'admin_menu', array( $this, 'settings_page' ) );
