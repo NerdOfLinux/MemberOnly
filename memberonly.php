@@ -10,16 +10,15 @@
  */
 /* Include the settings page */
 include("memberonly-settings.php");
-/* Get variables or use defaults */
-$redirect = get_option("redirect");
-$login_link = get_option("loginURL", "/wp-login.php");
-$member_categories = get_option("categories", "member-only");
-$message = get_option("message", "Sorry, this post is for members only.  [sign_in]");
-$loginText = get_option("loginText", "Sign In/Register.");
 add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
-
+    /* Get variables or use defaults */
+    $redirect = get_option("redirect");
+    $login_link = get_option("loginURL", "/wp-login.php");
+    $member_categories = get_option("categories", "member-only");
+    $message = get_option("message", "Sorry, this post is for members only.  [sign_in]");
+    $loginText = get_option("loginText", "Sign In/Register.");
     /* Create categories that are member only*/
     $categories = explode(",", $member_categories);
     /* If the post is in the category */
