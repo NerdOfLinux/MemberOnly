@@ -13,6 +13,10 @@ include("memberonly-settings.php");
 add_filter( 'the_content', 'post_filter' );
 /* Create the function */
 function post_filter( $content ) {
+	if ( is_user_logged_in() ) {
+         /* Exit to save resources*/
+         exit("User logged in.");
+     }
     /* Get variables or use defaults */
     $redirect = get_option("redirect");
     $login_link = get_option("loginURL", "/wp-login.php");
@@ -23,11 +27,6 @@ function post_filter( $content ) {
     $categories = explode(",", $member_categories);
     /* If the post is in the category */
     if ( in_category( $categories ) ) {
-        /* If the user is logged in, then show the content*/
-        if ( is_user_logged_in() ) {
-            return $content;
-            /* Else tell the user to log in */
-        } else {
             $content = "";
             if ( $redirect ){
                 $link = get_the_permalink();
@@ -40,7 +39,7 @@ function post_filter( $content ) {
                 $content = "<p>$loginMessage</p>"; }
             return $content; }
         /* If the post is not in the category */
-       } else {
+       else {
            return $content;
        }
 }
